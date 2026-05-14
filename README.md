@@ -17,7 +17,7 @@ O BrandOS não é um gerador de brandbook. É um **sistema operacional de marca*
 No Claude Code:
 
 ```txt
-/plugin marketplace add milenacostamiranda/brandos
+/plugin marketplace add milenacmiranda-desinger/brandos
 /plugin install brandos
 ```
 
