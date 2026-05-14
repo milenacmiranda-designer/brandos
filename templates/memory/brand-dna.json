@@ -1,0 +1,37 @@
+{
+  "brand_name": "",
+  "essence": "",
+  "archetype": {
+    "primary": "",
+    "secondary": "",
+    "not": ""
+  },
+  "positioning": "",
+  "value_proposition": "",
+  "promise": "",
+  "differentiation": {
+    "functional": "",
+    "emotional": ""
+  },
+  "tone": "",
+  "visual_direction": "",
+  "core_emotions": [],
+  "strategic_signals": [],
+  "forbidden_patterns": [],
+  "desired_perception": [],
+  "active_references": [],
+  "audience": {
+    "who": "",
+    "pains": [],
+    "desires": [],
+    "desired_feeling": []
+  },
+  "competitors": {
+    "direct": [],
+    "anti_references": [],
+    "free_territory": ""
+  },
+  "values": [],
+  "approved_decisions": [],
+  "rejected_decisions": []
+}

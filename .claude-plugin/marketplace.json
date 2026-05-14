@@ -1,0 +1,21 @@
+{
+  "name": "brandos-marketplace",
+  "owner": {
+    "name": "Milena Costa Miranda",
+    "email": "milenacostamiranda.mcm@gmail.com"
+  },
+  "metadata": {
+    "description": "Marketplace oficial do BrandOS — AI Brand Operating System.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "brandos",
+      "source": "./",
+      "description": "AI Brand Operating System — pipeline de 14 fases para criar, organizar e evoluir marcas dentro do Claude Code.",
+      "version": "1.0.0",
+      "category": "marketing",
+      "keywords": ["branding", "brand-system", "brand-strategy", "visual-identity", "verbal-identity"]
+    }
+  ]
+}

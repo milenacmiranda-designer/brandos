@@ -1,0 +1,14 @@
+# Saídas geradas pelo BrandOS no projeto do usuário
+brandos-output/
+outputs/
+memory/*.json
+!templates/memory/*.json
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+
+# Editores
+.vscode/
+.idea/

@@ -1,0 +1,11 @@
+{
+  "approved_decisions": [],
+  "rejected_decisions": [],
+  "qa_result": {
+    "score": null,
+    "status": "",
+    "conflicts": [],
+    "recommendations": []
+  },
+  "notes": []
+}

@@ -1,0 +1,11 @@
+{
+  "onboarding": {
+    "brand_stage": "",
+    "entry_path": "",
+    "initial_notes": ""
+  },
+  "current_phase": 1,
+  "user_confirmations": [],
+  "open_questions": [],
+  "notes": []
+}

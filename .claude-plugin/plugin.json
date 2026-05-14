@@ -1,0 +1,26 @@
+{
+  "name": "brandos",
+  "version": "1.0.0",
+  "description": "AI Brand Operating System — pipeline de 14 fases para criar, organizar e evoluir marcas. Do onboarding humanizado à produção de materiais, com memória persistente e Brand DNA como fonte única da verdade.",
+  "author": {
+    "name": "Milena Costa Miranda",
+    "email": "milenacostamiranda.mcm@gmail.com"
+  },
+  "homepage": "https://github.com/milenacostamiranda/brandos",
+  "repository": "https://github.com/milenacostamiranda/brandos",
+  "license": "MIT",
+  "keywords": [
+    "branding",
+    "brand-system",
+    "brand-strategy",
+    "brand-os",
+    "verbal-identity",
+    "visual-identity",
+    "positioning",
+    "archetype",
+    "brand-dna",
+    "tone-of-voice",
+    "brand-guidelines",
+    "marketing"
+  ]
+}
