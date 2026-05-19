@@ -316,6 +316,43 @@ brandos/
 │   ├── governance-qa-agent.md
 │   ├── export-agent.md
 │   └── production-agent.md
+├── subagents/
+│   ├── naming-subagent.md
+│   ├── tagline-subagent.md
+│   ├── competitor-analysis-subagent.md
+│   ├── audience-insight-subagent.md
+│   ├── tone-of-voice-subagent.md
+│   ├── manifesto-subagent.md
+│   ├── color-palette-subagent.md
+│   ├── typography-subagent.md
+│   └── visual-references-subagent.md
+├── skills/
+│   ├── skill-briefing-analysis.md
+│   ├── skill-brand-audit.md
+│   ├── skill-market-research.md
+│   ├── skill-persona-generation.md
+│   ├── skill-positioning.md
+│   ├── skill-value-proposition.md
+│   ├── skill-brand-personality.md
+│   ├── skill-verbal-identity.md
+│   ├── skill-visual-direction.md
+│   ├── skill-brandbook-generation.md
+│   └── skill-quality-review.md
+├── specs/
+│   ├── SPEC_00_OVERVIEW.md
+│   ├── SPEC_01_BRIEFING.md
+│   ├── SPEC_02_BRAND_AUDIT.md
+│   ├── SPEC_03_RESEARCH.md
+│   ├── SPEC_04_PERSONAS.md
+│   ├── SPEC_05_POSITIONING.md
+│   ├── SPEC_06_VALUE_PROPOSITION.md
+│   ├── SPEC_07_BRAND_PERSONALITY.md
+│   ├── SPEC_08_VERBAL_IDENTITY.md
+│   ├── SPEC_09_VISUAL_IDENTITY.md
+│   ├── SPEC_10_BRAND_BOOK.md
+│   ├── SPEC_11_OUTPUTS.md
+│   ├── SPEC_12_REVIEW.md
+│   └── SPEC_13_EXPORT.md
 ├── commands/
 │   ├── brandos.md
 │   ├── brandos-status.md
@@ -323,6 +360,17 @@ brandos/
 │   └── brandos-produce.md
 ├── workflows/
 │   └── brandos-pipeline.md
+├── prompts/
+│   ├── system-prompt.md
+│   ├── onboarding-prompt.md
+│   ├── briefing-prompt.md
+│   ├── audit-prompt.md
+│   ├── research-prompt.md
+│   ├── strategy-prompt.md
+│   ├── verbal-prompt.md
+│   ├── visual-prompt.md
+│   ├── review-prompt.md
+│   └── export-prompt.md
 ├── templates/
 │   └── memory/
 │       ├── brand-dna.json
@@ -333,6 +381,25 @@ brandos/
 │       ├── conversation-memory.json
 │       ├── production-memory.json
 │       └── campaign-memory.json
+├── docs/
+│   ├── overview.md
+│   ├── glossary.md
+│   ├── usage-guide.md
+│   └── concepts.md
+├── examples/
+│   ├── example-new-brand.md
+│   ├── example-rebrand.md
+│   ├── example-personal-brand.md
+│   └── example-digital-product.md
+├── tests/
+│   ├── test-new-brand.md
+│   ├── test-rebrand.md
+│   ├── test-personal-brand.md
+│   ├── test-digital-product.md
+│   └── test-quality-review.md
+├── outputs/
+│   └── README.md
+├── PRD.md
 ├── README.md
 ├── LICENSE
 └── BRANDOS_HARNESS.md
@@ -348,16 +415,28 @@ Verificar se o projeto possui os arquivos mínimos para funcionar como plugin, w
 
 ## 9.2 Checklist
 
+**Arquivos raiz**
 - [ ] Existe `.claude-plugin/plugin.json`
 - [ ] Existe `.claude-plugin/marketplace.json`
 - [ ] Existe `README.md`
+- [ ] Existe `PRD.md`
 - [ ] Existe `LICENSE`
-- [ ] Existe pasta `agents/`
+- [ ] Existe este arquivo `BRANDOS_HARNESS.md`
+
+**Pastas obrigatórias**
+- [ ] Existe pasta `agents/` com os 14 agentes
+- [ ] Existe pasta `subagents/` com os 9 subagentes
+- [ ] Existe pasta `skills/` com as 11 skills
+- [ ] Existe pasta `specs/` com SPEC_00 a SPEC_13
 - [ ] Existe pasta `commands/`
 - [ ] Existe pasta `workflows/`
+- [ ] Existe pasta `prompts/`
 - [ ] Existe pasta `templates/memory/`
+- [ ] Existe pasta `docs/`
+- [ ] Existe pasta `examples/`
+- [ ] Existe pasta `tests/`
+- [ ] Existe pasta `outputs/`
 - [ ] Existe `workflows/brandos-pipeline.md`
-- [ ] Existe este arquivo `BRANDOS_HARNESS.md`
 
 ## 9.3 Critério de aprovação
 
@@ -1612,14 +1691,23 @@ Verifique se o projeto BrandOS possui todos os arquivos e pastas obrigatórios:
 - .claude-plugin/plugin.json
 - .claude-plugin/marketplace.json
 - README.md
+- PRD.md
 - LICENSE
-- agents/
+- BRANDOS_HARNESS.md
+- agents/ (14 agentes)
+- subagents/ (9 subagentes)
+- skills/ (11 skills)
+- specs/ (SPEC_00 a SPEC_13)
 - commands/
 - workflows/brandos-pipeline.md
+- prompts/ (10 prompts-base)
 - templates/memory/
-- BRANDOS_HARNESS.md
+- docs/
+- examples/
+- tests/
+- outputs/
 
-Depois, verifique se existem os 14 agentes esperados, os 4 comandos principais e os 8 templates de memória.
+Depois, verifique se existem os 14 agentes esperados, os 9 subagentes, as 11 skills, as 14 specs, os 4 comandos principais e os 8 templates de memória.
 
 Retorne:
 
@@ -1760,8 +1848,12 @@ Retorne:
 
 O BrandOS só deve ser considerado aprovado se:
 
-- [ ] A estrutura do projeto está completa.
-- [ ] Todos os agentes obrigatórios existem.
+- [ ] A estrutura do projeto está completa (agents, subagents, skills, specs, prompts, docs, examples, tests, outputs).
+- [ ] Todos os 14 agentes obrigatórios existem.
+- [ ] Todos os 9 subagentes especializados existem.
+- [ ] Todas as 11 skills reutilizáveis existem.
+- [ ] Todas as 14 specs (SPEC_00 a SPEC_13) existem.
+- [ ] Todos os 10 prompts-base existem.
 - [ ] Todos os comandos principais existem.
 - [ ] O pipeline de 14 fases está documentado.
 - [ ] As fases obrigatórias são respeitadas.

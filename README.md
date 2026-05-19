@@ -125,14 +125,82 @@ brandos-output/
 ```txt
 brandos/
 ├── .claude-plugin/
-│   ├── plugin.json         ← manifesto do plugin
-│   └── marketplace.json    ← catálogo para distribuição
-├── agents/                 ← os 14 agentes
-├── commands/               ← /brandos e comandos auxiliares
+│   ├── plugin.json              ← manifesto do plugin
+│   └── marketplace.json         ← catálogo para distribuição
+├── agents/                      ← os 14 agentes principais
+├── subagents/                   ← 9 especialistas pontuais
+│   ├── naming-subagent.md
+│   ├── tagline-subagent.md
+│   ├── competitor-analysis-subagent.md
+│   ├── audience-insight-subagent.md
+│   ├── tone-of-voice-subagent.md
+│   ├── manifesto-subagent.md
+│   ├── color-palette-subagent.md
+│   ├── typography-subagent.md
+│   └── visual-references-subagent.md
+├── skills/                      ← 11 habilidades reutilizáveis
+│   ├── skill-briefing-analysis.md
+│   ├── skill-brand-audit.md
+│   ├── skill-market-research.md
+│   ├── skill-persona-generation.md
+│   ├── skill-positioning.md
+│   ├── skill-value-proposition.md
+│   ├── skill-brand-personality.md
+│   ├── skill-verbal-identity.md
+│   ├── skill-visual-direction.md
+│   ├── skill-brandbook-generation.md
+│   └── skill-quality-review.md
+├── specs/                       ← especificações de cada etapa
+│   ├── SPEC_00_OVERVIEW.md
+│   ├── SPEC_01_BRIEFING.md
+│   ├── SPEC_02_BRAND_AUDIT.md
+│   ├── SPEC_03_RESEARCH.md
+│   ├── SPEC_04_PERSONAS.md
+│   ├── SPEC_05_POSITIONING.md
+│   ├── SPEC_06_VALUE_PROPOSITION.md
+│   ├── SPEC_07_BRAND_PERSONALITY.md
+│   ├── SPEC_08_VERBAL_IDENTITY.md
+│   ├── SPEC_09_VISUAL_IDENTITY.md
+│   ├── SPEC_10_BRAND_BOOK.md
+│   ├── SPEC_11_OUTPUTS.md
+│   ├── SPEC_12_REVIEW.md
+│   └── SPEC_13_EXPORT.md
+├── commands/                    ← /brandos e comandos auxiliares
 ├── workflows/
-│   └── brandos-pipeline.md ← o workflow mestre de 14 fases
+│   └── brandos-pipeline.md      ← o workflow mestre de 14 fases
+├── prompts/                     ← prompts-base por agente
+│   ├── system-prompt.md
+│   ├── onboarding-prompt.md
+│   ├── briefing-prompt.md
+│   ├── audit-prompt.md
+│   ├── research-prompt.md
+│   ├── strategy-prompt.md
+│   ├── verbal-prompt.md
+│   ├── visual-prompt.md
+│   ├── review-prompt.md
+│   └── export-prompt.md
 ├── templates/
-│   └── memory/             ← templates dos 8 arquivos de memória
+│   └── memory/                  ← templates dos 8 arquivos de memória
+├── docs/                        ← documentação complementar
+│   ├── overview.md
+│   ├── glossary.md
+│   ├── usage-guide.md
+│   └── concepts.md
+├── examples/                    ← exemplos de uso por tipo de projeto
+│   ├── example-new-brand.md
+│   ├── example-rebrand.md
+│   ├── example-personal-brand.md
+│   └── example-digital-product.md
+├── tests/                       ← casos de teste e validação
+│   ├── test-new-brand.md
+│   ├── test-rebrand.md
+│   ├── test-personal-brand.md
+│   ├── test-digital-product.md
+│   └── test-quality-review.md
+├── outputs/                     ← entregáveis gerados pelo BrandOS
+│   └── README.md
+├── PRD.md                       ← product requirements document
+├── BRANDOS_HARNESS.md           ← harness de auditoria e QA
 ├── LICENSE
 └── README.md
 ```
