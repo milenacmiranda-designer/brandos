@@ -7,10 +7,34 @@
 ```md
 Você está na fase de Export System do BrandOS.
 
-Pré-requisito: Gate 12 aprovado com score ≥ 70.
-Se o Gate 12 não foi aprovado, bloqueie a exportação.
+## Output Decision Gate
 
-Seu objetivo nesta fase é:
+Antes de qualquer entrega, apresente ao usuário:
+
+```txt
+Briefing finalizado. Como você quer avançar?
+
+  1. Gerar Relatório PDF Completo
+     → Relatório editorial Swiss Design com todo o conteúdo estratégico
+     → Disponível agora
+
+  2. Avançar para Propostas de Layout
+     → Layout Proposal Studio
+
+  3. Revisar ou Complementar Respostas
+     → Retornar ao briefing
+```
+
+- Se escolher 1: use o prompt em `prompts/pdf-report-prompt.md` para gerar o relatório Swiss Editorial.
+- Se escolher 2: devolva ao brandos-core para acionar Layout Proposal Studio.
+- Se escolher 3: devolva ao briefing.
+
+## Exportação final completa
+
+Pré-requisito: Gate 12 aprovado com score ≥ 70.
+Se o Gate 12 não foi aprovado, bloqueie a exportação final.
+
+Objetivo nesta fase:
 1. Verificar aprovação do Gate 12.
 2. Consolidar todos os documentos em brand-system.md.
 3. Organizar a estrutura de pastas de output.

@@ -352,7 +352,8 @@ brandos/
 │   ├── SPEC_10_BRAND_BOOK.md
 │   ├── SPEC_11_OUTPUTS.md
 │   ├── SPEC_12_REVIEW.md
-│   └── SPEC_13_EXPORT.md
+│   ├── SPEC_13_EXPORT.md
+│   └── SPEC_14_PDF_REPORT.md
 ├── commands/
 │   ├── brandos.md
 │   ├── brandos-status.md
@@ -370,7 +371,8 @@ brandos/
 │   ├── verbal-prompt.md
 │   ├── visual-prompt.md
 │   ├── review-prompt.md
-│   └── export-prompt.md
+│   ├── export-prompt.md
+│   └── pdf-report-prompt.md
 ├── templates/
 │   └── memory/
 │       ├── brand-dna.json
@@ -427,7 +429,7 @@ Verificar se o projeto possui os arquivos mínimos para funcionar como plugin, w
 - [ ] Existe pasta `agents/` com os 14 agentes
 - [ ] Existe pasta `subagents/` com os 9 subagentes
 - [ ] Existe pasta `skills/` com as 11 skills
-- [ ] Existe pasta `specs/` com SPEC_00 a SPEC_13
+- [ ] Existe pasta `specs/` com SPEC_00 a SPEC_14
 - [ ] Existe pasta `commands/`
 - [ ] Existe pasta `workflows/`
 - [ ] Existe pasta `prompts/`
@@ -1697,7 +1699,7 @@ Verifique se o projeto BrandOS possui todos os arquivos e pastas obrigatórios:
 - agents/ (14 agentes)
 - subagents/ (9 subagentes)
 - skills/ (11 skills)
-- specs/ (SPEC_00 a SPEC_13)
+- specs/ (SPEC_00 a SPEC_14)
 - commands/
 - workflows/brandos-pipeline.md
 - prompts/ (10 prompts-base)
@@ -1852,8 +1854,8 @@ O BrandOS só deve ser considerado aprovado se:
 - [ ] Todos os 14 agentes obrigatórios existem.
 - [ ] Todos os 9 subagentes especializados existem.
 - [ ] Todas as 11 skills reutilizáveis existem.
-- [ ] Todas as 14 specs (SPEC_00 a SPEC_13) existem.
-- [ ] Todos os 10 prompts-base existem.
+- [ ] Todas as 15 specs (SPEC_00 a SPEC_14) existem.
+- [ ] Todos os 11 prompts-base existem (incluindo pdf-report-prompt.md).
 - [ ] Todos os comandos principais existem.
 - [ ] O pipeline de 14 fases está documentado.
 - [ ] As fases obrigatórias são respeitadas.

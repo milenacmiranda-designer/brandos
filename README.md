@@ -66,10 +66,14 @@ IDENTIDADE
 VALIDAÇÃO + ENTREGA
  12  Governance + QA      ◆gate  valida consistência — score /100
  13  Export System        ★      brand-system.md + PDF editorial A4
+     └─ Output Decision Gate     → PDF Swiss / Layout / Revisão
+     └─ Swiss Editorial PDF  ◇   relatório editorial intermediário (opcional)
  14  Production System    (opcional)  packs e materiais reais
 ```
 
 Os **gates** (fases 8 e 12) bloqueiam o avanço até serem aprovados — nada incoerente passa.
+
+O **Output Decision Gate** (fase 13) oferece ao usuário uma entrega antecipada: o relatório PDF com estética Swiss Design pode ser gerado logo após o briefing, sem precisar completar todas as fases.
 
 ---
 
@@ -164,7 +168,8 @@ brandos/
 │   ├── SPEC_10_BRAND_BOOK.md
 │   ├── SPEC_11_OUTPUTS.md
 │   ├── SPEC_12_REVIEW.md
-│   └── SPEC_13_EXPORT.md
+│   ├── SPEC_13_EXPORT.md
+│   └── SPEC_14_PDF_REPORT.md    ← Swiss Editorial PDF System
 ├── commands/                    ← /brandos e comandos auxiliares
 ├── workflows/
 │   └── brandos-pipeline.md      ← o workflow mestre de 14 fases
@@ -178,7 +183,8 @@ brandos/
 │   ├── verbal-prompt.md
 │   ├── visual-prompt.md
 │   ├── review-prompt.md
-│   └── export-prompt.md
+│   ├── export-prompt.md
+│   └── pdf-report-prompt.md     ← Swiss Editorial PDF System
 ├── templates/
 │   └── memory/                  ← templates dos 8 arquivos de memória
 ├── docs/                        ← documentação complementar

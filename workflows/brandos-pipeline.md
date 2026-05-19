@@ -24,7 +24,9 @@ estratégia → identidade → validação → exportação → produção opcio
 10 Visual Identity             │
 11 UX + Product Experience     ┘
 12 Governance + QA  ◆ gate     ┐ VALIDAÇÃO + ENTREGA
-13 Export System  ★ fecha P1   ┘
+13 Export System  ★ fecha P1   │
+   └─ Output Decision Gate     │   → PDF Swiss Editorial / Layout / Revisão
+   └─ Swiss Editorial PDF  ◇   ┘   (SPEC_14 — entrega antecipada opcional)
 14 Production System  (opcional)
 ```
 
@@ -47,6 +49,8 @@ estratégia → identidade → validação → exportação → produção opcio
 | 11 | UX + Product Experience | `ux-product-experience-agent` | 8,9,10 | Condicional² | `10-ux-product-experience.md` |
 | 12 | Governance + QA | `governance-qa-agent` | 9,10,11 | **Gate** | `11-governance-qa.md` |
 | 13 | Export System | `export-agent` | 12 | **Fecha Parte 1** | `brand-system.md` + PDF |
+| 13a | Output Decision Gate | `export-agent` | briefing | **Decisão** | roteamento: PDF / Layout / Revisão |
+| 13b | Swiss Editorial PDF | `export-agent` | briefing | **Opcional antecipado** | `brand-report.pdf` (Swiss Design) |
 | 14 | Production System | `production-agent` | 13 | **Opcional** | `03-production/` |
 
 ¹ Fase 3 roda nos caminhos `has-references` e `existing-brand`. No caminho `from-scratch`, é pulada.
@@ -65,12 +69,13 @@ existing-brand   →  1 → 3* → 2 → 4 → 5 → 6 → 7 → 8 → 9 → 10 
 
 ---
 
-## Gates
+## Gates e decision points
 
 Um gate **bloqueia** o avanço do pipeline até ser aprovado.
 
 - **Fase 8 — Brand DNA:** o `brand-dna.json` precisa estar completo (sem campos vazios) e validado pelo usuário. É a fonte da verdade para tudo que vem depois.
 - **Fase 12 — Governance + QA:** score ≥ 70. Abaixo disso, o pipeline volta para revisão das fases com problema. Conflito de severidade ALTA não documentado também bloqueia.
+- **Output Decision Gate (13a) — Entrega antecipada:** após consolidação do briefing, o usuário escolhe entre: (1) Gerar Relatório PDF Completo → Swiss Editorial PDF, (2) Avançar para Propostas de Layout, (3) Revisar respostas. O PDF pode ser gerado antes do Gate 12 como entrega estratégica intermediária.
 
 ---
 

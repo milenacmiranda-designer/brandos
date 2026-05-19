@@ -2,11 +2,34 @@
 
 ## Objetivo
 
-Definir como o BrandOS deve organizar e exportar os arquivos finais do Brand System.
+Definir como o BrandOS deve organizar e exportar os arquivos finais do Brand System, incluindo o Output Decision Gate que oferece ao usuário as opções de entrega após o briefing estratégico.
 
-## Pré-requisito
+## Output Decision Gate
 
-A exportação só pode ocorrer após aprovação no Gate 12 (SPEC_12_REVIEW).
+Após a consolidação e validação do briefing estratégico, o sistema deve apresentar ao usuário o seguinte gate de decisão:
+
+```txt
+Briefing finalizado. Como você quer avançar?
+
+  1. Gerar Relatório PDF Completo
+     → Ativa o Swiss Editorial PDF System (SPEC_14_PDF_REPORT)
+     → Entrega imediata, não exige Gate 12
+
+  2. Avançar para Propostas de Layout
+     → Ativa o Layout Proposal Studio
+
+  3. Revisar ou Complementar Respostas
+     → Retorna ao briefing para edição, complemento ou correção
+```
+
+Regra de roteamento:
+- Opção 1 → acionar `SPEC_14_PDF_REPORT` via `export-agent` (swiss editorial mode)
+- Opção 2 → acionar Layout Proposal Studio
+- Opção 3 → retornar ao briefing
+
+## Pré-requisito (exportação final completa)
+
+A exportação do Brand System completo só pode ocorrer após aprovação no Gate 12 (SPEC_12_REVIEW).
 
 Se o score for < 70, a exportação deve ser bloqueada.
 
@@ -86,6 +109,15 @@ Os arquivos finais devem:
 ## Checklist de exportação
 
 ```txt
+[ ] Output Decision Gate apresentado ao usuário
+[ ] Opção do usuário registrada e roteada corretamente
+
+Se Relatório PDF (SPEC_14):
+[ ] brand-report-swiss.md gerado
+[ ] brand-report.pdf (ou .html) gerado
+[ ] Layout Swiss Editorial aplicado
+
+Se exportação final completa:
 [ ] Gate 12 aprovado com score ≥ 70
 [ ] Pasta brandos-output/ criada
 [ ] Arquivos de memória atualizados
@@ -100,3 +132,7 @@ Os arquivos finais devem:
 ## Agente responsável
 
 `export-agent`
+
+## Referência
+
+Ver `SPEC_14_PDF_REPORT.md` para a especificação completa do Swiss Editorial PDF System.
