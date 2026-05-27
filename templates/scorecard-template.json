@@ -1,0 +1,65 @@
+{
+  "project_name": "",
+  "date": "",
+  "harness_mode": "",
+  "evaluator_agent": "governance-qa-agent",
+  "overall_score": 0,
+  "status": "",
+  "criteria": {
+    "strategic_clarity": {
+      "score": 0,
+      "critical": false,
+      "note": ""
+    },
+    "briefing_coherence": {
+      "score": 0,
+      "critical": true,
+      "note": ""
+    },
+    "audience_quality": {
+      "score": 0,
+      "critical": false,
+      "note": ""
+    },
+    "positioning": {
+      "score": 0,
+      "critical": true,
+      "note": ""
+    },
+    "differentiation": {
+      "score": 0,
+      "critical": true,
+      "note": ""
+    },
+    "brand_dna": {
+      "score": 0,
+      "critical": true,
+      "note": ""
+    },
+    "verbal_identity": {
+      "score": 0,
+      "critical": false,
+      "note": ""
+    },
+    "visual_identity": {
+      "score": 0,
+      "critical": false,
+      "note": ""
+    },
+    "applicability": {
+      "score": 0,
+      "critical": false,
+      "note": ""
+    },
+    "general_consistency": {
+      "score": 0,
+      "critical": true,
+      "note": ""
+    }
+  },
+  "critical_failures": [],
+  "strengths": [],
+  "required_fixes": [],
+  "recommendations": [],
+  "next_step": ""
+}

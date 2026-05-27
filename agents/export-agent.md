@@ -20,16 +20,22 @@ Briefing finalizado. Como você quer avançar?
      → Relatório editorial Swiss Design com todo o conteúdo estratégico
      → Entrega disponível agora, sem precisar completar todas as fases
 
-  2. Avançar para Propostas de Layout
-     → Seguir para o Layout Proposal Studio
+  2. Criar o Key Visual da marca
+     → Gerar a imagem-mãe da marca antes dos layouts
+     → Recomendado antes de qualquer proposta visual
 
-  3. Revisar ou Complementar Respostas
+  3. Avançar para Propostas de Layout
+     → Seguir para o Layout Proposal Studio
+     → Se o Key Visual ainda não foi criado, o sistema avisa
+
+  4. Revisar ou Complementar Respostas
      → Retornar ao briefing para ajustes
 ```
 
 - Se escolher **1**: ative o modo Swiss Editorial PDF (seção abaixo).
-- Se escolher **2**: devolva ao `brandos-core` para acionar Layout Proposal Studio.
-- Se escolher **3**: devolva ao `brandos-core` para retornar ao briefing.
+- Se escolher **2**: devolva ao `brandos-core` para acionar `key-visual-agent`.
+- Se escolher **3**: verifique `creative-memory.json → key_visual.status`. Se for `"pending"` ou `"skipped"`, avise o usuário e pergunte se quer criar o Key Visual antes. Se confirmar que quer pular, registre `key_visual.status = "skipped"` e devolva ao `brandos-core` para acionar Layout Proposal Studio.
+- Se escolher **4**: devolva ao `brandos-core` para retornar ao briefing.
 
 ---
 

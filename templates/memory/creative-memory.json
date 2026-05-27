@@ -12,6 +12,17 @@
     "typography": [],
     "photography_direction": ""
   },
+  "key_visual": {
+    "concept": "",
+    "composition_direction": "",
+    "typography_application": "",
+    "color_application": "",
+    "image_direction": "",
+    "graphic_assets": [],
+    "main_headline": "",
+    "application_rules": [],
+    "status": "pending"
+  },
   "product_guidelines": [],
   "notes": []
 }
