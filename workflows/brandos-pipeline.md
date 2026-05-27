@@ -1,4 +1,4 @@
-# BrandOS — Workflow Completo (14 Fases)
+# BrandOS — Workflow Completo (15 Fases)
 
 Este é o workflow mestre do BrandOS. O `brandos-core` usa este documento como referência para conduzir o pipeline.
 
@@ -22,12 +22,13 @@ estratégia → identidade → validação → exportação → produção opcio
 08 Brand DNA  ◆ gate           ┘
 09 Verbal Identity             ┐ IDENTIDADE
 10 Visual Identity             │
+10.5 Key Visual  ◇ recomendado │
 11 UX + Product Experience     ┘
 12 Governance + QA  ◆ gate     ┐ VALIDAÇÃO + ENTREGA
 13 Export System  ★ fecha P1   │
-   └─ Output Decision Gate     │   → PDF Swiss Editorial / Layout / Revisão
-   └─ Swiss Editorial PDF  ◇   ┘   (SPEC_14 — entrega antecipada opcional)
-14 Production System  (opcional)
+   └─ Output Decision Gate     │   → PDF Swiss Editorial / Layout / Key Visual / Revisão
+   └─ Swiss Editorial PDF  ◇   ┘   (SPEC_15 — entrega antecipada opcional)
+15 Production System  (opcional)
 ```
 
 ---
@@ -46,25 +47,28 @@ estratégia → identidade → validação → exportação → produção opcio
 | 8 | Brand DNA | `brand-dna-agent` | 7 | **Gate** | `brand-dna.json` + `07-brand-dna.md` |
 | 9 | Verbal Identity | `verbal-identity-agent` | 8 | Sempre | `08-verbal-identity.md` |
 | 10 | Visual Identity | `visual-identity-agent` | 8 | Sempre | `09-visual-identity.md` |
+| 10.5 | Key Visual & Direção de Aplicações | `key-visual-agent` | 8,9,10 | Recomendado³ | `09-key-visual-direcao-aplicacoes.md` |
 | 11 | UX + Product Experience | `ux-product-experience-agent` | 8,9,10 | Condicional² | `10-ux-product-experience.md` |
-| 12 | Governance + QA | `governance-qa-agent` | 9,10,11 | **Gate** | `11-governance-qa.md` |
+| 12 | Governance + QA | `governance-qa-agent` | 9,10,10.5,11 | **Gate** | `11-governance-qa.md` |
 | 13 | Export System | `export-agent` | 12 | **Fecha Parte 1** | `brand-system.md` + PDF |
-| 13a | Output Decision Gate | `export-agent` | briefing | **Decisão** | roteamento: PDF / Layout / Revisão |
+| 13a | Output Decision Gate | `export-agent` | briefing | **Decisão** | roteamento: PDF / Key Visual / Layout / Revisão |
 | 13b | Swiss Editorial PDF | `export-agent` | briefing | **Opcional antecipado** | `brand-report.pdf` (Swiss Design) |
-| 14 | Production System | `production-agent` | 13 | **Opcional** | `03-production/` |
+| 15 | Production System | `production-agent` | 13 | **Opcional** | `03-production/` |
 
 ¹ Fase 3 roda nos caminhos `has-references` e `existing-brand`. No caminho `from-scratch`, é pulada.
 ² Fase 11 roda quando a marca tem ou terá produto digital.
+³ Fase 10.5 é fortemente recomendada antes de layouts. Se pulada, registra `key_visual.status = "skipped"` na memória.
 
 ---
 
 ## Os três caminhos de onboarding
 
 ```txt
-from-scratch     →  1 → 2 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → (11) → 12 → 13 → (14)
-has-references   →  1 → 3 → 2 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → (11) → 12 → 13 → (14)
-existing-brand   →  1 → 3* → 2 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → (11) → 12 → 13 → (14)
+from-scratch     →  1 → 2 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → [10.5] → (11) → 12 → 13 → (15)
+has-references   →  1 → 3 → 2 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → [10.5] → (11) → 12 → 13 → (15)
+existing-brand   →  1 → 3* → 2 → 4 → 5 → 6 → 7 → 8 → 9 → 10 → [10.5] → (11) → 12 → 13 → (15)
                     (3* = modo diagnóstico + reposicionamento)
+                    [10.5] = recomendado, usuário pode pular
 ```
 
 ---
@@ -96,7 +100,7 @@ Um gate **bloqueia** o avanço do pipeline até ser aprovado.
 |---------|-------------|--------|
 | `brand-dna.json` | fase 8 (lido por 9-14) | fonte única da verdade |
 | `strategic-memory.json` | fases 2,3,5,7 | hipóteses, posicionamento, gaps, territórios |
-| `creative-memory.json` | fases 3,9,10,11 | padrões visuais, sistema verbal e visual |
+| `creative-memory.json` | fases 3,9,10,10.5,11 | padrões visuais, sistema verbal e visual, key visual |
 | `audience-memory.json` | fase 6 | público, dores, desejos, emoções |
 | `decision-memory.json` | fases 7,8,12 | decisões aprovadas e descartadas |
 | `conversation-memory.json` | fases 1,2 | onboarding, confirmações do usuário |

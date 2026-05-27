@@ -64,6 +64,48 @@ Ele transforma uma ideia inicial, marca existente, marca pessoal, negócio local
 
 ---
 
+## Feature: Key Visual & Direção de Aplicações
+
+### Objetivo
+
+Permitir que o BrandOS gere uma direção visual aplicada antes da criação de layouts finais, garantindo consistência entre estratégia, identidade visual e aplicações práticas.
+
+### Problema que resolve
+
+Evita que os layouts sejam gerados sem uma referência visual central, reduzindo inconsistência estética entre peças. Preenche a lacuna entre "cores e fontes definidas" e "layouts prontos" com uma imagem-mãe da marca.
+
+### Posição no pipeline
+
+Fase 10.5 — após Visual Identity (10) e antes de UX + Product Experience (11) e Propostas de Layout.
+
+### Agente responsável
+
+`key-visual-agent` com 6 subagentes especializados: composition, typography-application, color-application, image-direction, graphic-assets, application-system.
+
+### Usuário beneficiado
+
+Designers, empreendedores, criadores de marca, equipes de marketing e usuários não especialistas que precisam visualizar como a marca se comporta na prática.
+
+### Resultado esperado
+
+Arquivo `09-key-visual-direcao-aplicacoes.md` com conceito visual central, composição, tipografia aplicada, cor aplicada, imagem, grafismos, aplicações derivadas e checklist de consistência.
+
+### Comando
+
+`/gerar-key-visual`
+
+### Comportamento quando pulado
+
+Se o usuário pular esta fase, o sistema registra `key_visual.status = "skipped"` em `creative-memory.json` e avisa que os layouts serão gerados sem referência visual central.
+
+### Integração
+
+- **Propostas de Layout:** usa o Key Visual como referência base quando aprovado.
+- **Swiss Editorial PDF (SPEC_15):** inclui seção "Key Visual & Direção de Aplicações".
+- **Memória:** campo `key_visual` em `creative-memory.json`.
+
+---
+
 ## Limites
 
 O BrandOS não deve:
