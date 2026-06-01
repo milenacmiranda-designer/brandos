@@ -86,7 +86,43 @@ ritmo editorial
 páginas A4 completas
 ```
 
-**Geração do PDF:** monte o PDF a partir do `brand-system.md`. Verifique quais ferramentas de conversão estão disponíveis no ambiente (pandoc, wkhtmltopdf, etc.) via Bash. Se houver, gere o PDF com layout editorial. Se não houver nenhuma ferramenta de PDF disponível, gere um HTML editorial A4 pronto para impressão/exportação (`brand-guidelines.html`) e avise o usuário que ele pode abrir e salvar como PDF pelo navegador.
+**Geração do PDF — fluxo obrigatório em 3 tentativas:**
+
+**Tentativa 1 — WeasyPrint via Python (preferido):**
+Execute via Bash:
+```bash
+pip install weasyprint --quiet 2>/dev/null && python -c "from weasyprint import HTML; HTML(filename='brandos-output/02-pdf/brand-guidelines.html').write_pdf('brandos-output/02-pdf/brand-guidelines.pdf')" && echo "PDF_OK"
+```
+Se retornar `PDF_OK`, o PDF foi gerado. Fim.
+
+**Tentativa 2 — reportlab via Python:**
+```bash
+pip install reportlab --quiet 2>/dev/null && echo "REPORTLAB_OK"
+```
+Se disponível, gere o PDF via script Python usando reportlab a partir do conteúdo do `brand-system.md`.
+
+**Tentativa 3 — HTML editorial A4 (fallback garantido):**
+Se as tentativas 1 e 2 falharem, gere `brandos-output/02-pdf/brand-guidelines.html` com o estilo abaixo e informe o usuário:
+
+> "Seu Brand Guidelines foi gerado como HTML editorial. Para exportar como PDF: abra o arquivo no navegador → Ctrl+P (ou Cmd+P) → Salvar como PDF. O layout foi otimizado para impressão A4."
+
+**CSS obrigatório para o HTML (inclua sempre, mesmo nas tentativas 1 e 2 para ter o HTML de backup):**
+```css
+@page { size: A4; margin: 20mm 18mm; }
+@media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+body { font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 10pt; line-height: 1.6; color: #111; background: #fff; max-width: 170mm; margin: 0 auto; }
+h1 { font-size: 28pt; font-weight: 900; letter-spacing: -0.03em; margin: 0 0 4mm; }
+h2 { font-size: 18pt; font-weight: 700; border-bottom: 0.5mm solid #111; padding-bottom: 2mm; margin: 8mm 0 4mm; }
+h3 { font-size: 12pt; font-weight: 600; color: #333; margin: 6mm 0 2mm; }
+.section-number { font-size: 60pt; font-weight: 900; color: #eee; line-height: 1; display: block; margin-bottom: -10mm; }
+.highlight-block { background: #f5f5f5; border-left: 3mm solid var(--brand-color, #111); padding: 4mm 6mm; margin: 4mm 0; }
+.page-break { page-break-after: always; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+th { background: #111; color: #fff; padding: 2mm 3mm; text-align: left; }
+td { padding: 2mm 3mm; border-bottom: 0.3mm solid #ddd; }
+.cover { min-height: 250mm; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 20mm; }
+.page-header { font-size: 7pt; color: #999; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 0.3mm solid #eee; padding-bottom: 2mm; margin-bottom: 6mm; }
+```
 
 ### 3. Última página fixa (JPEG)
 
@@ -122,9 +158,13 @@ Use o prompt em `prompts/pdf-report-prompt.md` como instrução interna completa
 4. Aplique hierarquia tipográfica forte: número grande de seção, título, subtítulo, corpo, legenda.
 5. Use sistema de cores reduzido: fundo claro, preto, cinzas, + 1 cor de destaque da marca.
 6. Gere `brandos-output/02-pdf/brand-report-swiss.md` com o conteúdo editorial completo.
-7. Verifique ferramentas de PDF disponíveis no ambiente (pandoc, wkhtmltopdf etc.) via Bash.
-8. Se disponível: gere `brand-report.pdf`.
-9. Se não disponível: gere `brand-report.html` A4 pronto para impressão e avise o usuário.
+7. **Sempre** gere `brandos-output/02-pdf/brand-report.html` com o CSS editorial A4 completo (mesmo CSS do brand-guidelines.html acima). Este arquivo é o backup garantido.
+8. **Tentativa de PDF via WeasyPrint:**
+   ```bash
+   pip install weasyprint --quiet 2>/dev/null && python -c "from weasyprint import HTML; HTML(filename='brandos-output/02-pdf/brand-report.html').write_pdf('brandos-output/02-pdf/brand-report.pdf')" && echo "PDF_OK"
+   ```
+9. Se `PDF_OK`: entregue `brand-report.pdf` + `brand-report.html` (backup).
+10. Se falhar: entregue `brand-report.html` e informe: "Abra no navegador → Ctrl+P → Salvar como PDF para obter o arquivo PDF final."
 
 ### Checklist de qualidade Swiss Editorial
 

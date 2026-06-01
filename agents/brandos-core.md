@@ -89,7 +89,7 @@ brandos-output/
 └── 04-assets/            ← referências e arquivos
 ```
 
-Os templates de memória estão em `${CLAUDE_PLUGIN_ROOT}/templates/memory/`. Copie-os na primeira execução.
+Os templates de memória estão em `C:\Users\mcmmi\OneDrive\Desktop\Projetos Claude\Meus Workflows\Projetos_Brandos\brandos\templates\memory\`. Copie-os na primeira execução.
 
 ## Regras de orquestração
 

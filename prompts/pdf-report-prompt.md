@@ -163,13 +163,20 @@ Crie ritmo editorial variando entre:
 - [ ] Paleta consistente
 - [ ] Aparência premium de branding, não template genérico
 
-## Saída
+## Saída — fluxo obrigatório
 
-Gere:
-1. `brandos-output/02-pdf/brand-report-swiss.md` — conteúdo editorial completo do relatório
-2. `brandos-output/02-pdf/brand-report.pdf` — PDF final (ou `brand-report.html` se sem ferramenta de PDF disponível)
+Gere sempre nesta ordem:
 
-Se não houver ferramenta de PDF no ambiente, gere o HTML editorial A4 pronto para impressão e avise o usuário que pode abrir e salvar como PDF pelo navegador.
+1. `brandos-output/02-pdf/brand-report-swiss.md` — conteúdo editorial completo do relatório (markdown estruturado)
+2. `brandos-output/02-pdf/brand-report.html` — **sempre gerar**, HTML editorial A4 com CSS de impressão completo (este é o arquivo garantido)
+3. Tentativa de gerar `brandos-output/02-pdf/brand-report.pdf` via WeasyPrint:
+   ```bash
+   pip install weasyprint --quiet 2>/dev/null && python -c "from weasyprint import HTML; HTML(filename='brandos-output/02-pdf/brand-report.html').write_pdf('brandos-output/02-pdf/brand-report.pdf')" && echo "PDF_OK"
+   ```
+   - Se `PDF_OK`: entregue o `.pdf` como output principal + `.html` como backup.
+   - Se falhar: entregue o `.html` e informe o usuário: "Abra o arquivo no navegador → Ctrl+P (ou Cmd+P) → Salvar como PDF. O layout está otimizado para A4."
+
+**Nunca entregue apenas o `.md` como output final.** O HTML é o mínimo garantido.
 
 ## O que NÃO fazer
 
