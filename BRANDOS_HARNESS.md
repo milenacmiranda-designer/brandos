@@ -2,8 +2,8 @@
 
 **Projeto:** BrandOS — Branding System com agentes, subagentes, tasks e skills  
 **Tipo de arquivo:** Harness de teste, validação, auditoria, QA e documentação  
-**Versão do Harness:** v1.0.0  
-**Versão sugerida do BrandOS:** v1.0.0  
+**Versão do Harness:** v1.2.0  
+**Versão sugerida do BrandOS:** v1.2.0  
 **Status:** pronto para uso inicial no Claude Code, Claude Cloud / Cloud Coach, ChatGPT, Cursor, Antigravity e GitHub
 
 ---
@@ -312,6 +312,7 @@ brandos/
 │   ├── brand-dna-agent.md
 │   ├── verbal-identity-agent.md
 │   ├── visual-identity-agent.md
+│   ├── key-visual-agent.md
 │   ├── ux-product-experience-agent.md
 │   ├── governance-qa-agent.md
 │   ├── export-agent.md
@@ -325,7 +326,13 @@ brandos/
 │   ├── manifesto-subagent.md
 │   ├── color-palette-subagent.md
 │   ├── typography-subagent.md
-│   └── visual-references-subagent.md
+│   ├── visual-references-subagent.md
+│   ├── composition-subagent.md
+│   ├── typography-application-subagent.md
+│   ├── color-application-subagent.md
+│   ├── image-direction-subagent.md
+│   ├── graphic-assets-subagent.md
+│   └── application-system-subagent.md
 ├── skills/
 │   ├── skill-briefing-analysis.md
 │   ├── skill-brand-audit.md
@@ -349,16 +356,19 @@ brandos/
 │   ├── SPEC_07_BRAND_PERSONALITY.md
 │   ├── SPEC_08_VERBAL_IDENTITY.md
 │   ├── SPEC_09_VISUAL_IDENTITY.md
-│   ├── SPEC_10_BRAND_BOOK.md
-│   ├── SPEC_11_OUTPUTS.md
-│   ├── SPEC_12_REVIEW.md
-│   ├── SPEC_13_EXPORT.md
-│   └── SPEC_14_PDF_REPORT.md
+│   ├── SPEC_10_KEY_VISUAL.md
+│   ├── SPEC_11_BRAND_BOOK.md
+│   ├── SPEC_12_OUTPUTS.md
+│   ├── SPEC_13_REVIEW.md
+│   ├── SPEC_14_EXPORT.md
+│   └── SPEC_15_PDF_REPORT.md
 ├── commands/
 │   ├── brandos.md
 │   ├── brandos-status.md
 │   ├── brandos-resume.md
-│   └── brandos-produce.md
+│   ├── brandos-produce.md
+│   ├── brandos-harness.md
+│   └── gerar-key-visual.md
 ├── workflows/
 │   └── brandos-pipeline.md
 ├── prompts/
@@ -374,6 +384,9 @@ brandos/
 │   ├── export-prompt.md
 │   └── pdf-report-prompt.md
 ├── templates/
+│   ├── run-log-template.md
+│   ├── scorecard-template.md
+│   ├── scorecard-template.json
 │   └── memory/
 │       ├── brand-dna.json
 │       ├── strategic-memory.json
@@ -426,10 +439,10 @@ Verificar se o projeto possui os arquivos mínimos para funcionar como plugin, w
 - [ ] Existe este arquivo `BRANDOS_HARNESS.md`
 
 **Pastas obrigatórias**
-- [ ] Existe pasta `agents/` com os 14 agentes
-- [ ] Existe pasta `subagents/` com os 9 subagentes
+- [ ] Existe pasta `agents/` com os 15 agentes
+- [ ] Existe pasta `subagents/` com os 15 subagentes
 - [ ] Existe pasta `skills/` com as 11 skills
-- [ ] Existe pasta `specs/` com SPEC_00 a SPEC_14
+- [ ] Existe pasta `specs/` com SPEC_00 a SPEC_15
 - [ ] Existe pasta `commands/`
 - [ ] Existe pasta `workflows/`
 - [ ] Existe pasta `prompts/`
@@ -454,7 +467,7 @@ STATUS: REPROVADO — ESTRUTURA INCOMPLETA
 
 # 10. Agentes esperados
 
-O BrandOS deve conter 14 agentes principais.
+O BrandOS deve conter 15 agentes principais.
 
 | Nº | Agente | Função principal | Status esperado |
 |---:|---|---|---|
@@ -468,6 +481,7 @@ O BrandOS deve conter 14 agentes principais.
 | 08 | `brand-dna-agent.md` | Consolidação do DNA da marca e gate estratégico | Obrigatório |
 | 09 | `verbal-identity-agent.md` | Tom de voz, mensagens e identidade verbal | Obrigatório |
 | 10 | `visual-identity-agent.md` | Direção visual e sistema visual | Obrigatório |
+| 10.5 | `key-visual-agent.md` | Key Visual e direção de aplicações | Recomendado |
 | 11 | `ux-product-experience-agent.md` | Experiência de produto, app, SaaS, jornada e UX | Condicional |
 | 12 | `governance-qa-agent.md` | QA, consistência e governança | Obrigatório |
 | 13 | `export-agent.md` | Exportação dos documentos finais | Obrigatório |
@@ -712,6 +726,8 @@ O BrandOS deve conter comandos principais para iniciar, acompanhar, retomar e pr
 | `/brandos-status` | `commands/brandos-status.md` | Verificar fase atual, progresso e pendências |
 | `/brandos-resume` | `commands/brandos-resume.md` | Retomar projeto de onde parou |
 | `/brandos-produce` | `commands/brandos-produce.md` | Gerar materiais de produção e assets |
+| `/brandos-harness` | `commands/brandos-harness.md` | Auditar, validar e fazer QA do sistema |
+| `/gerar-key-visual` | `commands/gerar-key-visual.md` | Executar a Fase 10.5 — Key Visual & Direção de Aplicações |
 
 ## 12.1 Checklist de comandos
 
@@ -725,9 +741,9 @@ O BrandOS deve conter comandos principais para iniciar, acompanhar, retomar e pr
 
 ---
 
-# 13. Pipeline de 14 fases
+# 13. Pipeline de 15 fases
 
-O BrandOS deve seguir 14 fases principais.
+O BrandOS deve seguir 15 fases principais.
 
 | Nº | Fase | Status | Agente principal |
 |---:|---|---|---|
@@ -741,10 +757,11 @@ O BrandOS deve seguir 14 fases principais.
 | 08 | Brand DNA | Obrigatória / Gate | brand-dna-agent |
 | 09 | Verbal Identity | Obrigatória | verbal-identity-agent |
 | 10 | Visual Identity | Obrigatória | visual-identity-agent |
+| 10.5 | Key Visual & Direção de Aplicações | Recomendada | key-visual-agent |
 | 11 | UX + Product Experience | Condicional | ux-product-experience-agent |
 | 12 | Governance + QA | Obrigatória / Gate | governance-qa-agent |
 | 13 | Export System | Obrigatória | export-agent |
-| 14 | Production System | Condicional | production-agent |
+| 15 | Production System | Condicional | production-agent |
 
 ## 13.1 Fases obrigatórias
 
@@ -1652,7 +1669,7 @@ Você deve avaliar:
 2. arquivos obrigatórios;
 3. agentes;
 4. comandos;
-5. workflow de 14 fases;
+5. workflow de 15 fases;
 6. memória persistente;
 7. gates obrigatórios;
 8. experiência do usuário;
@@ -1696,20 +1713,20 @@ Verifique se o projeto BrandOS possui todos os arquivos e pastas obrigatórios:
 - PRD.md
 - LICENSE
 - BRANDOS_HARNESS.md
-- agents/ (14 agentes)
-- subagents/ (9 subagentes)
+- agents/ (15 agentes)
+- subagents/ (15 subagentes)
 - skills/ (11 skills)
-- specs/ (SPEC_00 a SPEC_14)
+- specs/ (SPEC_00 a SPEC_15)
 - commands/
 - workflows/brandos-pipeline.md
-- prompts/ (10 prompts-base)
+- prompts/ (12 prompts-base)
 - templates/memory/
 - docs/
 - examples/
 - tests/
 - outputs/
 
-Depois, verifique se existem os 14 agentes esperados, os 9 subagentes, as 11 skills, as 14 specs, os 4 comandos principais e os 8 templates de memória.
+Depois, verifique se existem os 15 agentes esperados, os 15 subagentes, as 11 skills, as 16 specs, os 6 comandos principais e os 8 templates de memória.
 
 Retorne:
 
@@ -1851,13 +1868,13 @@ Retorne:
 O BrandOS só deve ser considerado aprovado se:
 
 - [ ] A estrutura do projeto está completa (agents, subagents, skills, specs, prompts, docs, examples, tests, outputs).
-- [ ] Todos os 14 agentes obrigatórios existem.
-- [ ] Todos os 9 subagentes especializados existem.
+- [ ] Todos os 15 agentes obrigatórios existem.
+- [ ] Todos os 15 subagentes especializados existem.
 - [ ] Todas as 11 skills reutilizáveis existem.
-- [ ] Todas as 15 specs (SPEC_00 a SPEC_14) existem.
-- [ ] Todos os 11 prompts-base existem (incluindo pdf-report-prompt.md).
-- [ ] Todos os comandos principais existem.
-- [ ] O pipeline de 14 fases está documentado.
+- [ ] Todas as 16 specs (SPEC_00 a SPEC_15) existem.
+- [ ] Todos os 12 prompts-base existem (incluindo pdf-report-prompt.md e key-visual-prompt.md).
+- [ ] Todos os 6 comandos principais existem.
+- [ ] O pipeline de 15 fases está documentado.
 - [ ] As fases obrigatórias são respeitadas.
 - [ ] As fases condicionais são acionadas corretamente.
 - [ ] O Discovery não é pulado.
@@ -1891,12 +1908,12 @@ O BrandOS só deve ser considerado aprovado se:
 - Logs.
 - Prompts de execução.
 
-## v1.1.0
+## v1.1.0 ✅ Concluído
 
-- Adicionar comando real `/brandos-harness`.
-- Criar arquivo `commands/brandos-harness.md`.
-- Criar templates reais de scorecard.
-- Criar pasta `tests/` com casos de teste separados.
+- ~~Adicionar comando real `/brandos-harness`.~~ ✅
+- ~~Criar arquivo `commands/brandos-harness.md`.~~ ✅
+- ~~Criar templates reais de scorecard.~~ ✅ (`scorecard-template.md`, `scorecard-template.json`)
+- ~~Criar pasta `tests/` com casos de teste separados.~~ ✅
 
 ## v1.2.0
 
@@ -1916,6 +1933,21 @@ O BrandOS só deve ser considerado aprovado se:
 ---
 
 # 37. Changelog
+
+## v1.2.0 — Key Visual + Atualização de contagens (2026-06-02)
+
+Inclui:
+
+- nova fase 10.5 — Key Visual & Direção de Aplicações (`key-visual-agent.md`);
+- 6 novos subagentes: `composition`, `typography-application`, `color-application`, `image-direction`, `graphic-assets`, `application-system`;
+- novo comando `/gerar-key-visual` (`commands/gerar-key-visual.md`);
+- specs renumeradas: SPEC_10_KEY_VISUAL a SPEC_15_PDF_REPORT (16 specs no total);
+- novos prompts: `key-visual-prompt.md` (12 prompts no total);
+- novos templates: `run-log-template.md`, `scorecard-template.md`, `scorecard-template.json`;
+- atualização do harness para refletir 15 agentes, 15 subagentes, 15 fases, 16 specs, 6 comandos e 12 prompts;
+- arquivos de notas de atualização movidos da raiz para `docs/`.
+
+---
 
 ## v1.0.0 — Versão inicial
 
